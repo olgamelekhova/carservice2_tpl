@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 public class CarRentalService {
 
-    private List<Car> cars = new ArrayList<Car>();
+    private List<Car> cars = new ArrayList<>();
 
     public CarRentalService() {
         cars.add(new Car("11AA22", "Ferrari", 1000));
@@ -24,7 +24,7 @@ public class CarRentalService {
 
     @RequestMapping(value = "/cars", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    public void addCar(@RequestBody Car car) throws Exception {
+    public void addCar(@RequestBody Car car) {
         System.out.println(car);
         cars.add(car);
     }
