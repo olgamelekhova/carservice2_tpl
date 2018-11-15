@@ -1,20 +1,20 @@
 package com.example.carservice;
 
-public class Car {
+import java.io.Serializable;
+
+public class Car implements Serializable {
 
     private String plateNumber;
     private String brand;
     private int price;
-
-    public Car() {
-        super();
-    }
+    private boolean isRented;
 
     public Car(String plateNumber, String brand, int price) {
         super();
         this.plateNumber = plateNumber;
         this.brand = brand;
         this.price = price;
+        this.isRented = false;
     }
 
     public String getPlateNumber() {
@@ -41,9 +41,34 @@ public class Car {
         this.price = price;
     }
 
+    public boolean isRented() {
+        return isRented;
+    }
+
+    public void toRent(boolean toRent) {
+        this.isRented = toRent;
+    }
+
+    boolean rentCar() {
+        if (isRented) {
+            return false;
+        }
+
+        isRented = true;
+        return isRented;
+    }
+
+    boolean getBackCar() {
+        if (!isRented) {
+            return false;
+        }
+
+        isRented = false;
+        return !isRented;
+    }
+
     @Override
     public String toString() {
         return "Car [plateNumber=" + plateNumber + ", brand=" + brand + ", price=" + price + "]";
     }
-
 }
