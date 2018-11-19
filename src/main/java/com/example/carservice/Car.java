@@ -48,10 +48,6 @@ public class Car implements Serializable {
         return isRented;
     }
 
-    public void toRent(boolean toRent) {
-        this.isRented = toRent;
-    }
-
     boolean rentCar() {
         if (isRented) {
             return false;
