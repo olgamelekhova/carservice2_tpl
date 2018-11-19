@@ -9,6 +9,9 @@ public class Car implements Serializable {
     private int price;
     private boolean isRented;
 
+    public Car() {
+    }
+
     public Car(String plateNumber, String brand, int price) {
         super();
         this.plateNumber = plateNumber;
